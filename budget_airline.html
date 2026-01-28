@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlyEasy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0077cc;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* Hamburger */
+    #menu-toggle { display: none; }
+    .menu-icon { display: none; font-size: 26px; cursor: pointer; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(to right, #6dd5fa, #2980b9);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 { font-size: 36px; margin-bottom: 10px; }
+    .hero p { margin-bottom: 20px; }
+
+    .btn {
+      background: #ffcc00;
+      color: #000;
+      padding: 12px 25px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* ===== FEATURES ===== */
+    .features {
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      border: 1px solid #ddd;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      padding: 60px 20px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .plan {
+      border: 1px solid #ccc;
+      padding: 30px;
+      width: 250px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .plan:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .premium {
+      border: 2px solid #0077cc;
+      box-shadow: 0 0 15px rgba(0,119,204,0.4);
+      position: relative;
+    }
+
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #0077cc;
+      color: white;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer p { margin: 8px 0; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .features { grid-template-columns: 1fr; }
+      .pricing { flex-direction: column; align-items: center; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        border-top: 1px solid #ddd;
+      }
+
+      #menu-toggle:checked + .menu-icon + .nav-links {
+        display: flex;
+      }
+
+      .menu-icon { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <div class="logo">FlyEasy</div>
+
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">☰</label>
+
+      <div class="nav-links">
+        <a href="#">Deals</a>
+        <a href="#">Flights</a>
+        <a href="#">Hotels</a>
+        <a href="#">Support</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>50% Off Asia Flights This Week</h1>
+    <p>Limited-time offer. Book before seats run out.</p>
+    <button class="btn">Book Now</button>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature-card">
+      <h3>Non‑Stop Routes</h3>
+      <p>Direct flights to major Asian destinations.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Free Meals & Baggage</h3>
+      <p>Complimentary meals and generous baggage allowance.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Flexible Booking</h3>
+      <p>Easy rescheduling with minimal charges.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="plan">
+      <h3>Economy Fare</h3>
+      <h2>₹25,000</h2>
+      <p>✔ Standard seat</p>
+      <p>✔ Free meal</p>
+      <p>✔ 15kg baggage</p>
+    </div>
+
+    <div class="plan premium">
+      <div class="badge">Recommended</div>
+      <h3>Premium Comfort</h3>
+      <h2>₹40,000</h2>
+      <p>✔ Extra legroom</p>
+      <p>✔ Priority boarding</p>
+      <p>✔ 30kg baggage</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Contact: FlyEasy Airport Office, Terminal 2</p>
+    <p>Phone: +91 98765 43210 | Email: support@flyeasy.com</p>
+    <p>Social: Twitter | Facebook | Instagram</p>
+    <p>Certified Safe Airline ✈️</p>
+  </footer>
+
+</body>
+</html>
